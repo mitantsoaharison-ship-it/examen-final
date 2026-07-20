@@ -75,7 +75,16 @@ function ajout_membre($etu, $nom)
 
 function get_liste_produit()
 {
-    $req = "requête";
+    $req = "SELECT m.nom,
+                m.numero_etu,
+                p.nom AS produit,
+                pm.id_produit,
+                pm.prix_vente,
+                pm.quantite_dispo,
+                pm.date_dispo
+            FROM membre m
+                JOIN produit_membre pm ON m.id_membre = pm.id_membre
+                JOIN produit p ON pm.id_produit = p.id_produit ORDER BY m.numero_etu;";
     $result = get_all_lines($req);
     return $result;
 }
