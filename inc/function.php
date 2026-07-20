@@ -72,3 +72,10 @@ function ajout_membre($etu, $nom)
     echo $req;
     execute_query($req);
 }
+
+function get_liste_produit()
+{
+    $req = "requête";
+    $result = get_all_lines($req);
+    return $result;
+}
