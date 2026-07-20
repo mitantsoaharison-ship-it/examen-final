@@ -67,7 +67,8 @@ function check_login($etu)
 function ajout_membre($etu, $nom)
 {
     // $req = "INSERT INTO membre VALUES ()"
-    $req = "INSERT INTO membre VALUES (%d, '%s')";
-    $req = sprintf($req, $etu, $nom);
+    $req = "INSERT INTO membre VALUES (null, '%s', %d, null)";
+    $req = sprintf($req, $nom, $etu);
+    echo $req;
     execute_query($req);
 }
